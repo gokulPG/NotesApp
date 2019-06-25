@@ -1,0 +1,29 @@
+{
+  "name": "notes-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": " concurrently \"nodemon index.js\" \" npm start --prefix=notes-react-app \" ",
+    "heroku-postbuild": "cd notes-react-app && npm install && npm run build"
+  },
+  "engines": {
+    "node": "10.3.0",
+    "npm": "^6.8.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bcryptjs": "^2.4.3",
+    "concurrently": "^4.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.5.8",
+    "validator": "^11.0.0"
+  }
+}
