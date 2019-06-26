@@ -6,8 +6,7 @@ mongoose.Promise = global.Promise
 const connection_uri = process.env.MONGODB_URI || "mongodb://localhost:27017/notes-app"
 console.log(process.env.MONGODB_URI);
 	mongoose.connect(connection_uri, {
-      useNewUrlParser: true,
-      uri_decode_auth: true
+      useNewUrlParser: true
     })
     .then(() => {
       console.log("db connected succefully");
