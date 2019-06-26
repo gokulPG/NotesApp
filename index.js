@@ -3,7 +3,9 @@ const cors=require('cors')
 const app=express()
 
 const path = require("path");
-const port = process.env.PORT || 3001
+const port = process.env.PORT || 3001  
+//it loooks into the heroku's envirnoment variable for the port number
+//port value can be set in the server by: heroku config:set port 3001 
 
 const {mongoose}=require('./config/database')
 
