@@ -67,27 +67,26 @@ class NotesShow extends React.Component{
     }
     render(){
         return(
-            <div>
-               <h3>Title:{this.state.note.title}</h3>
-                <p>Body:{this.state.note.body}</p> 
-               <h4>Category:{this.state.note.category && this.state.note.category.name}</h4>
+            <div className="list-group">
+               <h2 className="list-group-item active">{this.state.note.title}</h2>
+                <h3 className="list-group-item">Body: {this.state.note.body}</h3> 
+               <h4 className="list-group-item">Category: {this.state.note.category && this.state.note.category.name}</h4>
 
-              <h5>tags: </h5>
+              <h5 className="list-group-item">tags: </h5>
               {this.state.note.tags && (
-                  <ul>
+                  <ul className="list-group-item">
                       {this.state.note.tags.map((tagItem=>{
-                          return <li key={tagItem._id}>
-                          {tagItem.tag.name}<button onClick={()=>{this.handleRemoveTag(tagItem)}}>x</button></li>
+                          return <li class="list-inline-item" key={tagItem._id}>{tagItem.tag.name}<button onClick={()=>{this.handleRemoveTag(tagItem)}}>x</button></li>
                       }))}
                   </ul>
               )}
 
 
-               <Link to="/notes">back</Link>
-               <Link to={`/notes/edit/${this.props.match.params.id}`}>Edit</Link>
-               <button onClick={()=>{
+               <Link className="list-group-item" id="center" to="/notes">back</Link>
+               <Link  className="list-group-item" id="center" to={`/notes/edit/${this.props.match.params.id}`}>Edit</Link>
+               <button className="list-group-item" onClick={()=>{
                    this.handleCopy()
-               }}>make copy</button>
+               }}>make copy</button><br/>
             </div>
         ) 
     }

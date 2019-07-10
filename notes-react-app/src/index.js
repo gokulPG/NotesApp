@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {BrowserRouter, Route,Link,Switch} from 'react-router-dom'
-
+import './css/style.css'
 //notes
 import NotesList from'./components/notes/notesList'
 import NotesShow from './components/notes/notesShow'
@@ -48,26 +48,40 @@ class App extends React.Component{
     return(
       <BrowserRouter>
         <div>
-            <h2>MY NOTE-APP</h2>
-            <ul>
-                {this.state.isAuthenticated && (
-                  <div>
-                    <li><Link to='users/account'>Account</Link></li>
-                    <li><Link to='users/logout'>Logout</Link></li>
-                    <li><Link to="/notes">List Notes</Link><br /></li> 
-                    <li><Link to="/categories">List Categories</Link><br /></li>
-                    <li><Link to="/tags">List Tags </Link></li>
-                  </div>
-                )}
+        <div className="d-flex justify-content-center">
+            <h2>NOTE-TAKING-APP</h2>
+        </div>
+        <hr></hr>
 
-                {!this.state.isAuthenticated && (
-                  <div>
-                    <li><Link to="/users/register">Register</Link><br/></li>
-                    <li><Link to="/users/login">Login</Link><br/></li>
-                  </div>
-                )}
-            </ul>
-          
+       <div id="header"> 
+          <div className="container">
+            <div className="row">
+                <div className="col-md-10">
+                    <h3>Welcome to my website</h3>
+                </div>
+                <div className="col-md-2">
+                      <ul>
+                      {this.state.isAuthenticated && (
+                        <div>
+                          <li><Link to='users/account'>Account</Link></li>
+                          <li><Link to='users/logout'>Logout</Link></li>
+                        </div>
+                      )}
+
+                      {!this.state.isAuthenticated && (
+                        <div>
+                          <li><Link to="/users/register">Register</Link><br/></li>
+                          <li><Link to="/users/login">Login</Link><br/></li>
+                        </div>
+                      )}
+                  </ul>
+                </div>
+            </div>
+          </div> 
+        </div> 
+      
+                    
+        <div className="d-flex justify-content-center">
               {/* logged out routes */}
             {!this.state.isAuthenticated && (
               <div>
@@ -81,6 +95,10 @@ class App extends React.Component{
             {/* <logged in router */}
             {this.state.isAuthenticated &&(
             <div>
+              <li><Link to="/notes">List Notes</Link><br /></li> 
+                <li><Link to="/categories">List Categories</Link><br /></li>
+                <li><Link to="/tags">List Tags </Link></li><br/>
+                <hr></hr>
               <Switch>
                     {/* <Route path="/" component={NotesRegister} exact={true}/> */}
                     <Route path="/users/account" component={NotesAccount} exact={true} />
@@ -98,7 +116,7 @@ class App extends React.Component{
               </Switch>
             </div>
             )}
-
+        </div>
         </div>    
       </BrowserRouter>
     )

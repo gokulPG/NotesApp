@@ -1,0 +1,24 @@
+body{
+    background:#C4FEB6
+  }
+
+#header{
+    background:rgb(28, 85, 80);
+    color:#ffffff;
+    padding-top: 10px;
+    margin-bottom: 15px;
+  }
+
+  h2 {
+    color: blue;
+    text-align:center;
+  }
+
+  h3{
+    color: black
+  }
+
+#center{
+    text-align:center;
+}
+  

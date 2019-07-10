@@ -77,7 +77,8 @@ handleDelete(note){
     render(){
         return(
             <div>
-                <h2>Listing Notes:{this.state.notes.length}</h2>
+                <h2>Listing Notes: {this.state.notes.length}</h2>
+                <hr></hr>
                 <h4>UnPinned List</h4>
                 <ul>
                     {this.state.notes.length>0 && this.state.notes.map(note=>{
@@ -85,16 +86,16 @@ handleDelete(note){
                         if(note.isPinned===false){
                         return <li key={note._id}><Link to={`/notes/${note._id}`}>{note.title}</Link>
                          <button onClick={()=>{this.handleDelete(note)}}>X</button>
-                        <button onClick={()=>{this.handlePinned(note)}}>Unpinned</button></li>
+                        <button onClick={()=>{this.handlePinned(note)}}>Pin</button></li>
                         }})}
                         </ul>
-                    <h4>Others</h4>
+                    <h4>Pinned List</h4>
                         <ul>
                          {this.state.notes.length>0 && this.state.notes.map(note=>{
                             if(note.isPinned===true){
                                 return <li key={note._id}><Link to={`/notes/${note._id}`}>{note.title}</Link>
                                  <button onClick={()=>{this.handleDelete(note)}}>X</button>
-                                <button onClick={()=>{this.handlePinned(note)}}>pinned</button></li>
+                                <button onClick={()=>{this.handlePinned(note)}}>Unpin</button></li>
                                 }
                             })}
                 </ul>

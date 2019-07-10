@@ -42,11 +42,16 @@ class NotesEdit extends React.Component{
     render(){
         return(
             <div>
-                <h2>edit notes</h2>
-                <NotesForm handleSubmit={this.handleSubmit} note={this.state.note} />
-                <Link to="/notes">back</Link>
-
-              
+                <div className="card" id="header">
+                <div className="card-body">
+                    <h3 className="card-title">Edit notes</h3>
+                    <hr></hr>
+                    <div className="card-text">
+                        <NotesForm handleSubmit={this.handleSubmit} note={this.state.note} />
+                        <Link to="/notes">back</Link>
+                    </div>
+                </div>
+                </div>
             </div>
         )
         }

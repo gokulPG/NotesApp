@@ -78,41 +78,49 @@ class NotesForm extends React.Component{
         // console.log('form render')
         return(
             <div>
-             <form onSubmit={this.handleSubmit}>
-                 <label>Title:
-                     <input type="text" value={this.state.title} 
-                     onChange={this.handleChange}
-                     name="title"/>
-                 </label>
-                 <br/><br/>
 
-                 <label>Body:
-                     <textarea value={this.state.body}
-                     onChange={this.handleChange}
-                     name="body"></textarea>
-                 </label>
-                 <br/><br/>
-
-                 <label>
-                     tags
-                     {this.state.tags.map(tag=>{
-                         return <label key={tag._id}> <input type="checkbox" onClick={()=>{this.handleTagSelection(tag) }}/>{tag.name}</label>
-                         
-                     })}
-                 </label><br/><br/>
-
-                  <label>Category:
-                        <select value={this.state.category} name="category" onChange={this.handleChange}>
-                            <option value="">select</option>
-                            {this.state.categories.map((category)=>{
-                                return <option key={category._id}
-                                value={category._id}>{category.name}</option>
-                            })}
-                        </select>
-                  </label><br/>
-                  <br/>
-
-
+                <form  id="header" onSubmit={this.handleSubmit}>
+                    <fieldset>
+                        <div className="form-group">
+                            <label>
+                                Title:
+                                <input type="text" value={this.state.title} 
+                                    onChange={this.handleChange}
+                                    className="form-control"
+                                    name="title" placeholder="Enter title"/>
+                            </label>
+                        </div><br/>
+                        <div className="form-group">
+                             <label>
+                                Body:
+                                <textarea value={this.state.body}
+                                onChange={this.handleChange}
+                                className="form-control"
+                                name="body" placeholder="describe the note.."></textarea>
+                             </label>
+                        </div><br/>
+                        <div className="form-group">
+                             <label>
+                                  tags:<br/>
+                                    {this.state.tags.map(tag=>{
+                                        return <label key={tag._id}> <input className="form-control" type="checkbox" onClick={()=>{this.handleTagSelection(tag) }}/>{'| '+tag.name+'| '}</label>
+                                        
+                                    })}
+                             </label>
+                        </div><br/>
+                        <div className="form-group">
+                            <label>
+                                  category:
+                                  <select className="form-control" value={this.state.category} name="category" onChange={this.handleChange}>
+                                        <option value="">select</option>
+                                        {this.state.categories.map((category)=>{
+                                            return <option key={category._id}
+                                            value={category._id}>{category.name}</option>
+                                        })}
+                                    </select>
+                            </label>   
+                        </div><br/>
+                    </fieldset>
                  <input type="submit"/>
              </form>
             </div>
@@ -121,3 +129,36 @@ class NotesForm extends React.Component{
 }
 
 export default NotesForm
+
+            // <label>Title:
+            //          <input type="text" value={this.state.title} 
+            //          onChange={this.handleChange}
+            //          name="title"/>
+            //      </label>
+            //      <br/><br/>
+
+            //      <label>Body:
+            //          <textarea value={this.state.body}
+            //          onChange={this.handleChange}
+            //          name="body"></textarea>
+            //      </label>
+            //      <br/><br/>
+
+            //      <label>
+            //          tags
+            //          {this.state.tags.map(tag=>{
+            //              return <label key={tag._id}> <input type="checkbox" onClick={()=>{this.handleTagSelection(tag) }}/>{tag.name}</label>
+                         
+            //          })}
+            //      </label><br/><br/>
+
+            //       <label>Category:
+            //             <select value={this.state.category} name="category" onChange={this.handleChange}>
+            //                 <option value="">select</option>
+            //                 {this.state.categories.map((category)=>{
+            //                     return <option key={category._id}
+            //                     value={category._id}>{category.name}</option>
+            //                 })}
+            //             </select>
+            //       </label><br/>
+            //       <br/>

@@ -26,7 +26,12 @@ class NotesAccount extends React.Component{
         return(
             <div>
                 <h2>User Account</h2>
-                <p>{this.state.user.username}</p>
+                <hr></hr>
+                <div className="card" style={{width:"400px"}}>
+                    <div className="card-body">
+                        <h4 id="center" className="card-title">{this.state.user.username}</h4>
+                    </div>
+               </div> 
             </div>
         )
     }

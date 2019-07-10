@@ -1,7 +1,8 @@
 import React from 'react'
 import axios from '../../config/config-axios';
 import NotesForm from './notesForm'
- 
+import {Link} from 'react-router-dom'
+
 class NotesNew extends React.Component{
     constructor(){
         super()
@@ -27,9 +28,15 @@ class NotesNew extends React.Component{
     }
     render(){
         return(
-            <div>
-                <h2>Add New Notes</h2>
-                <NotesForm handleSubmit={this.handleSubmit}/>
+            <div className="card" id="header">
+                <div className="card-body">
+                    <h3 className="card-title">Add New Note</h3>
+                    <hr></hr>
+                    <div className="card-text">
+                         <NotesForm handleSubmit={this.handleSubmit}/>
+                         <Link to="/notes">back</Link>
+                    </div>
+                </div>
             </div>
         )
     }

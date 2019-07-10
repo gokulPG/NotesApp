@@ -9,10 +9,10 @@ class NotesLogin extends React.Component{
         email:'',
         password:''
     }
-    this.handleInput=this.handleInput.bind(this)
+    this.handleChange=this.handleChange.bind(this)
     this.handleSubmit=this.handleSubmit.bind(this)
 }
-handleInput(e){
+handleChange(e){
     e.persist()
     this.setState(()=>({
         [e.target.name]:e.target.value
@@ -42,18 +42,19 @@ handleSubmit(e){
 render(){
     return(
         <form onSubmit={this.handleSubmit}>
-
-            <label>Email:
-            <input type="text" value={this.state.value}
-                 onChange={this.handleInput} name="email"/>
-            </label><br/><br/>
-
-            
-            <label>Password:
-            <input type="password" value={this.state.value}
-                 onChange={this.handleInput} name="password"/>
-            </label><br/><br/>  
-
+        <h2>LOGIN</h2>
+        <div class="form-group">  
+       <label for="exampleInputEmail1">
+              email
+             <input type="text" name="email" value={this.state.email}  onChange={this.handleChange} class="form-control" id="exampleInputEmail1" placeholder="Email"/>
+               </label><br/>
+                </div>   
+                <div class="form-group">                          
+                    <label  for="exampleInputPassword1">                                
+                          password
+                        <input type="password" name="password" value={this.state.password} onChange={this.handleChange} class="form-control" id="exampleInputPassword1" placeholder="Password" />
+                     </label><br/>
+                </div>   
             <input type="submit"/>   
         </form>
     )
